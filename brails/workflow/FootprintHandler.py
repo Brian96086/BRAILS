@@ -92,14 +92,15 @@ class FootprintHandler:
             if isinstance(queryarea,str):
                 # Search for the query area using Nominatim API:
                 print(f"\nSearching for {queryarea}...")
-                queryarea = queryarea.replace(" ", "+").replace(',','+')
+                # queryarea = queryarea.replace(" ", "+").replace(',','+')
                 
-                queryarea_formatted = ""
-                for i, j in groupby(queryarea):
-                    if i=='+':
-                        queryarea_formatted += i
-                    else:
-                        queryarea_formatted += ''.join(list(j))
+                # queryarea_formatted = ""
+                # for i, j in groupby(queryarea):
+                #     if i=='+':
+                #         queryarea_formatted += i
+                #     else:
+                #         queryarea_formatted += ''.join(list(j))
+                queryarea_formatted = queryarea
                 
                 nominatimquery = ('https://nominatim.openstreetmap.org/search?' +
                                   f"q={queryarea_formatted}&format=jsonv2")
@@ -116,8 +117,8 @@ class FootprintHandler:
                        data['type']=='university'):
                         areafound = True
                         break
-                    elif (data['osm_type']=='relation' and 
-                         data['type']=='administrative'): 
+                    elif (data['osm_type'] in ['relation', 'way'] and 
+                         data['type'] in ['administrative', 'city', 'town']): 
                         areafound = True
                         break
                 if areafound==True:

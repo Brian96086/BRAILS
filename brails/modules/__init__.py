@@ -49,3 +49,6 @@ from brails.modules.GarageDetector.GarageDetector import GarageDetector
 from brails.modules.NumFloorDetector.NFloorDetector import NFloorDetector
 from brails.modules.RoofCoverClassifier.RoofCoverClassifier import RoofCoverClassifier
 from brails.modules.YearBuiltClassifier.YearBuiltClassifier import YearBuiltClassifier
+from brails.modules.CLIPClassifier.CLIPClassifier import CLIPClassifier
+from brails.modules.NumFloorDetector_v2.NFloorDetector_v2 import NFloorDetector_v2
+from brails.modules.ImageSegmenter_v2.ImageSegmenter_v2 import ImageSegmenter_v2
